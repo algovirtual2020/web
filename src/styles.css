@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~animate.css/animate.min';
+@font-face {
+    font-family: varino;
+    src: url(./assets/fonts/varino/Varino_Bold.otf) format("opentype");
+}
+
+@font-face {
+    font-family: varino;
+    src: url(./assets/fonts/centuryGothic/GOTHIC.TTF) format("centuryGothic");
+}
+
+a.title {
+    font-family: 'varino';
+}

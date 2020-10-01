@@ -1,0 +1,123 @@
+import { element } from 'protractor';
+
+import { Component, OnInit } from '@angular/core';
+import { trigger, state, style, animate, transition } from '@angular/animations';
+import { ViewportScroller } from '@angular/common';
+import { Subscriber } from 'rxjs';
+import * as AOS from 'aos';
+
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+  animations: [
+    // trigger('aniDown',[
+      
+    //   transition('void <=> *',[animate(1000, style({ opacity: 0, transform: ' translateY(-100%)' }))] ),
+    //   //transition('void => *', animate('1000ms ease-in-out', style({ opacity: 1, transform: ' translateY(100%)' }))),
+    
+    // ])
+
+    trigger('aniDown',[
+      
+
+      state('inactive',style({
+        
+      })),
+
+      state('active',style({
+        
+      })),
+     
+
+      transition('inactive <=> active', animate('1000ms ease', style({ opacity: 1, transform: ' translateY(-100%)' }))),
+ 
+      transition('active <=> inactive', animate('1000ms ease', style({ opacity: 1, transform: ' translateY(100%)' })),   ),
+    
+    ]),
+
+    
+    // trigger('aniDown',[
+    //   state('inactive',style({
+    //     backgroundColor: '#eee',
+    //     transform:'scale[1]'
+    //   })),
+
+    //   state('active',style({
+    //     backgroundColor: '#ff0000',
+    //     transform:'scale[1.5]'
+    //   })),
+
+    //   transition('inactive => active', animate('200ms ease-in')),
+    //   transition('active => inactive', animate('200ms ease-out')),
+    
+    // ])
+  ]
+})
+export class AppComponent implements OnInit  {
+
+ 
+  title = 'algovirtual-web';
+  public bool:boolean= true;
+
+  public state:string = "";
+
+  
+  constructor(private ViewportScroller: ViewportScroller) { }
+    ngOnInit(){
+      AOS.init(
+        {
+          
+          
+      }
+      );
+    }
+
+  
+  scrollToElement($element): void {
+    //console.log($element);
+    //const element = document.querySelector("target");
+    
+    //element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+
+    this.ViewportScroller.scrollToAnchor('one');
+    
+  }
+
+  togerBotton(elementId:string){
+    
+  this.state = this.state === 'active' ? 'inactive': 'active';
+
+  //this.state= "active";
+  }
+
+   async open($event){
+     
+    console.log($event);
+    
+     if(this.bool){
+       
+       this.bool=false;
+      }else{
+        
+        //var a = await  ViewportScroller.getScrollPosition();
+        //console.log(a);
+       this.ViewportScroller.scrollToAnchor('one');
+     }
+    }
+
+    
+  
+  togerBotton2(){
+    this.ViewportScroller.scrollToAnchor('one');
+  }
+
+
+
+}
+//html
+
+<main [@aniDown]="state">
+        <app-one></app-one>
+    </main>

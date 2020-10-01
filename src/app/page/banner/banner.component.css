@@ -1,0 +1,31 @@
+/* @keyframes animacionEntrar {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes animacionSalir {
+    from {
+        transform: translateY(0%);
+    }
+    to {
+        transform: translateY(-100%);
+    }
+}
+ */
+
+h2.titleSup {
+    font-family: 'varino';
+    position: relative;
+    right: 20%;
+    line-height: 20px;
+}
+
+h2.titleInf {
+    font-family: 'varino';
+    position: relative;
+    right: -5%;
+}
