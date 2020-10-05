@@ -15,3 +15,8 @@
         transform: translateY(-100%);
     }
 }
+
+.backgraund {
+    background-position: center -7.95px;
+    background-image: url("./../../../assets/images/pic04.jpg");
+}
